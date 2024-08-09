@@ -1,0 +1,50 @@
+# Build Folders
+bin/
+obj/
+*/obj/*
+
+# User-specific files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files by Visual Studio
+.vs/
+*.dbmdl
+*.pdb
+*.opendb
+*.VC.db
+.vscode/*
+
+# Xamarin/Maui specific
+.gradle/
+.loom/
+*.apk
+*.ap_
+*.dex
+*.jar
+*.java
+*.class
+*.manifest
+*.log
+
+# IDE-specific files
+.DS_Store
+*.orig
+
+# macOS specific files
+*.DS_Store
+*.AppleDouble
+.LSOverride
+
+# macOS directory attributes
+Icon?
+._*
+
+# Thumbnails
+._*.sln
+._*.csproj
+._*.user
