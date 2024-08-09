@@ -25,7 +25,4 @@ public class Person
 }
 
 [JsonSerializable(typeof(List<Person>))]
-internal sealed partial class PersonContext : JsonSerializerContext
-{
-
-}
+internal sealed partial class PersonContext : JsonSerializerContext;
