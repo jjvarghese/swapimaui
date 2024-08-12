@@ -9,7 +9,20 @@
     <ContentPage.Content>
         <VerticalStackLayout
             >
-            <Label Text="{Binding People[0].Name}"/>
+            <ScrollView>
+                <CollectionView BackgroundColor="Transparent" ItemsSource="{Binding People}" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Person">
+                            <Frame Padding="0" HeightRequest="60">
+                                    <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
+                                        <Label Text="{Binding Name}"  />
+                                        <Label Text="{Binding Gender}" />
+                                    </VerticalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
             <Button Text="Get People" Command="{Binding GetPeopleCommand}" IsEnabled="{Binding IsNotBusy}" />
         </VerticalStackLayout>
 
