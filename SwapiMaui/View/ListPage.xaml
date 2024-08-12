@@ -7,6 +7,11 @@
              x:DataType="viewmodel:ListViewModel"
              x:Class="SwapiMaui.View.ListPage">
     <ContentPage.Content>
-        <Button Text="Get People" Command="{Binding GetPeopleCommand}" IsEnabled="{Binding IsNotBusy}" />
+        <VerticalStackLayout
+            >
+            <Label Text="{Binding People[0].Name}"/>
+            <Button Text="Get People" Command="{Binding GetPeopleCommand}" IsEnabled="{Binding IsNotBusy}" />
+        </VerticalStackLayout>
+
     </ContentPage.Content>
 </ContentPage>

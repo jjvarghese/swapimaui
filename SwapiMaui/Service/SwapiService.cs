@@ -23,12 +23,12 @@ public class SwapiService
         else
         {
             var url = "https://swapi.dev/api/people";
-            var response = await httpClient.GetAsync(url);
+            var response = await httpClient.GetFromJsonAsync<SwapiResponse<Person>>(url);
 
-            if (response.IsSuccessStatusCode)
+            if (response.Results.Count > 0)
             {
-                people = await response.Content.ReadFromJsonAsync<List<Person>>();
-                
+                people = response?.Results ?? [];
+
             }
 
             return people;
