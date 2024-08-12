@@ -2,8 +2,11 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:SwapiMaui.ViewModel"
+             xmlns:model="using:SwapiMaui.Model"
+             x:DataType="viewmodel:ListViewModel"
              x:Class="SwapiMaui.View.ListPage">
     <ContentPage.Content>
-        <Button Text="Get People" />
+        <Button Text="Get People" Command="{Binding GetPeopleCommand}" IsEnabled="{Binding IsNotBusy}" />
     </ContentPage.Content>
 </ContentPage>

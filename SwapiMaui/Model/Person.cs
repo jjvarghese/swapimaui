@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices.JavaScript;
 using System.Text.Json.Serialization;
 
+namespace SwapiMaui.Model;
 public class Person
 {
     public String Name { get; set; }

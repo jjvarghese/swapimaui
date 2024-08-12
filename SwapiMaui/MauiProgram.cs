@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using SwapiMaui.Service;
 using SwapiMaui.View;
+using SwapiMaui.ViewModel;
 
 namespace SwapiMaui;
 

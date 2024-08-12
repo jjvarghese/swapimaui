@@ -1,9 +1,11 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
+using SwapiMaui.Model;
 using SwapiMaui.Service;
 using SwapiMaui.ViewModel;
 
+namespace SwapiMaui.ViewModel;
 public partial class ListViewModel : BaseViewModel
 {
     private readonly SwapiService swapiService;
