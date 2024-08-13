@@ -5,9 +5,31 @@
              x:Class="SwapiMaui.View.DetailPage"
              xmlns:viewmodel="clr-namespace:SwapiMaui.ViewModel"
              xmlns:global="clr-namespace:"
-             x:DataType="global:DetailViewModel"
+             Title="{Binding Person.Name}"
+             x:DataType="viewmodel:DetailViewModel"
              >
     <ContentPage.Content>
-        
+        <ScrollView>
+            <VerticalStackLayout>
+
+                <Grid
+                    ColumnDefinitions="*,Auto,*"
+                    RowDefinitions="160, Auto">
+
+                    <BoxView
+                        BackgroundColor="{StaticResource Primary}"
+                        Grid.ColumnSpan="3"
+                        HeightRequest="160"
+                        HorizontalOptions="FillAndExpand" />
+                </Grid>
+                
+                <VerticalStackLayout Padding="10" Spacing="10">
+                    <Label Text="{Binding Person.Name}" />
+                    <Label Text="{Binding Person.Gender}" />
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
