@@ -32,5 +32,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<SwapiService>();
         builder.Services.AddSingleton<ListViewModel>();
         builder.Services.AddSingleton<ListPage>();
+        
+        builder.Services.AddTransient<DetailPage>();
+        builder.Services.AddTransient<DetailViewModel>();
     }
 }

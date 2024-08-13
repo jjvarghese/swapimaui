@@ -4,17 +4,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:SwapiMaui.ViewModel"
              xmlns:model="using:SwapiMaui.Model"
+             xmlns:global="clr-namespace:"
              x:DataType="viewmodel:ListViewModel"
              x:Class="SwapiMaui.View.ListPage">
     <ContentPage.Content>
-        <VerticalStackLayout
-            >
-            <ScrollView>
-                <CollectionView BackgroundColor="Transparent" ItemsSource="{Binding People}" SelectionMode="None">
+        <VerticalStackLayout>
+                <CollectionView BackgroundColor="Transparent" ItemsSource="{Binding People, Mode=OneWay}" SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Person">
                             <Frame Padding="0" HeightRequest="60">
-                                    <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        CommandParameter="{Binding .}"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToDetailCommand}" />
+                                </Frame.GestureRecognizers>
+                                <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
                                         <Label Text="{Binding Name}"  />
                                         <Label Text="{Binding Gender}" />
                                     </VerticalStackLayout>
@@ -22,7 +26,6 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-            </ScrollView>
             <Button Text="Get People" Command="{Binding GetPeopleCommand}" IsEnabled="{Binding IsNotBusy}" />
         </VerticalStackLayout>
 

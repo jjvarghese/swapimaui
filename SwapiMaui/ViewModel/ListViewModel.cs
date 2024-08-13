@@ -3,6 +3,7 @@ using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using SwapiMaui.Model;
 using SwapiMaui.Service;
+using SwapiMaui.View;
 using SwapiMaui.ViewModel;
 
 namespace SwapiMaui.ViewModel;
@@ -50,5 +51,16 @@ public partial class ListViewModel : BaseViewModel
         {
             IsBusy = false;
         }
+    }
+    
+    [RelayCommand]
+    private async Task GoToDetailAsync(Person person)
+    {
+        if (person is null) return;
+
+        await Shell.Current.GoToAsync($"{nameof(DetailPage)}", true, new Dictionary<string, object>
+        {
+            { "Person", person }
+        });
     }
 }
