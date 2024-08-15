@@ -26,7 +26,29 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-            <Button Text="Get People" Command="{Binding GetPeopleCommand}" IsEnabled="{Binding IsNotBusy}" />
+            <CollectionView BackgroundColor="Transparent" ItemsSource="{Binding Films, Mode=OneWay}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Film">
+                        <Frame Padding="0" HeightRequest="60">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    CommandParameter="{Binding .}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToDetailCommand}" />
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
+                                <Label Text="{Binding Title}"  />
+                                <Label Text="{Binding EpisodeId, StringFormat='Episode {0}'}" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <VerticalStackLayout Spacing="10" Margin="10">
+                <Button Text="Get People" Command="{Binding GetPeopleCommand}" IsEnabled="{Binding IsNotBusy}" />
+                <Button Text="Get Films" Command="{Binding GetFilmsCommand}" IsEnabled="{Binding IsNotBusy}" />
+            </VerticalStackLayout>
+
+
         </VerticalStackLayout>
 
     </ContentPage.Content>

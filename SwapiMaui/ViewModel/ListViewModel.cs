@@ -12,6 +12,7 @@ public partial class ListViewModel : BaseViewModel
     private readonly SwapiService swapiService;
 
     public ObservableCollection<Person> People { get; } = new();
+    public ObservableCollection<Film> Films { get; } = new();
 
     public ListViewModel(SwapiService swapiService)
     {
@@ -31,7 +32,9 @@ public partial class ListViewModel : BaseViewModel
         try
         {
             IsBusy = true;
-
+            
+            Films.Clear();
+            
             var people = await swapiService.GetPeople();
             
             if (People.Count != 0) People.Clear();
@@ -39,6 +42,41 @@ public partial class ListViewModel : BaseViewModel
             foreach (var person in people)
             {
                 People.Add(person);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+
+            await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+    }
+    
+    [RelayCommand]
+    private async Task GetFilmsAsync()
+    {
+        if (IsBusy)
+        {
+            return;
+        }
+
+        try
+        {
+            IsBusy = true;
+            
+            People.Clear();
+
+            var films = await swapiService.GetFilms();
+            
+            if (Films.Count != 0) Films.Clear();
+
+            foreach (var film in films)
+            {
+                Films.Add(film);
             }
         }
         catch (Exception ex)
