@@ -10,24 +10,13 @@
              >
     <ContentPage.Content>
         <ScrollView>
-            <VerticalStackLayout>
+            <VerticalStackLayout Padding="10">
 
-                <Grid
-                    ColumnDefinitions="*,Auto,*"
-                    RowDefinitions="160, Auto">
-
-                    <BoxView
-                        BackgroundColor="{StaticResource Primary}"
-                        Grid.ColumnSpan="3"
-                        HeightRequest="160"
-                        HorizontalOptions="FillAndExpand" />
-                </Grid>
-                
-                <VerticalStackLayout Padding="10" Spacing="10">
-                    <Label Text="{Binding Person.Name}" />
-                    <Label Text="{Binding Person.Gender}" />
-
-                </VerticalStackLayout>
+                <Label Text="{Binding Person.Name, StringFormat='Name: {0}'}" />
+                <Label Text="{Binding Person.Gender, StringFormat='Gender: {0}'}" />
+                <Label Text="{Binding Person.SkinColor, StringFormat='Skin Colour: {0}'}" />
+                <Label Text="{Binding Person.HairColor, StringFormat='Hair Colour: {0}'}" />
+                <Label Text="{Binding Person.EyeColor, StringFormat='Eye Colour: {0}'}" />
 
             </VerticalStackLayout>
         </ScrollView>

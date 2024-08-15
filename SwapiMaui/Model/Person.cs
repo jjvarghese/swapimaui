@@ -6,10 +6,13 @@ public class Person
 {
     public String Name { get; set; }
     
+    [JsonPropertyName("hair_color")]
     public String HairColor { get; set; }
     
+    [JsonPropertyName("skin_color")]
     public String SkinColor { get; set; }
     
+    [JsonPropertyName("eye_color")]
     public String EyeColor { get; set; }
     
     public String Gender { get; set; }
