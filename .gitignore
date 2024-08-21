@@ -18,6 +18,7 @@ obj/
 *.opendb
 *.VC.db
 .vscode/*
+*.sln
 
 # Xamarin/Maui specific
 .gradle/
