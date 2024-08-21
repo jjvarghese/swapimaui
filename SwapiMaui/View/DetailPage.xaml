@@ -4,7 +4,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SwapiMaui.View.DetailPage"
              xmlns:viewmodel="clr-namespace:SwapiMaui.ViewModel"
-             xmlns:global="clr-namespace:"
              Title="{Binding Person.Name}"
              x:DataType="viewmodel:DetailViewModel"
              >
@@ -12,11 +11,11 @@
         <ScrollView>
             <VerticalStackLayout Padding="10">
 
-                <Label Text="{Binding Person.Name, StringFormat='Name: {0}'}" />
-                <Label Text="{Binding Person.Gender, StringFormat='Gender: {0}'}" />
-                <Label Text="{Binding Person.SkinColor, StringFormat='Skin Colour: {0}'}" />
-                <Label Text="{Binding Person.HairColor, StringFormat='Hair Colour: {0}'}" />
-                <Label Text="{Binding Person.EyeColor, StringFormat='Eye Colour: {0}'}" />
+                <Label Style="{StaticResource BulletPoint}" Text="{Binding Person.Name, StringFormat='Name: {0}'}" />
+                <Label Style="{StaticResource BulletPoint}" Text="{Binding Person.Gender, StringFormat='Gender: {0}'}" />
+                <Label Style="{StaticResource BulletPoint}" Text="{Binding Person.SkinColor, StringFormat='Skin Colour: {0}'}" />
+                <Label Style="{StaticResource BulletPoint}" Text="{Binding Person.HairColor, StringFormat='Hair Colour: {0}'}" />
+                <Label Style="{StaticResource BulletPoint}" Text="{Binding Person.EyeColor, StringFormat='Eye Colour: {0}'}" />
 
             </VerticalStackLayout>
         </ScrollView>
