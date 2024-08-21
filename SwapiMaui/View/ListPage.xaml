@@ -4,7 +4,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:SwapiMaui.ViewModel"
              xmlns:model="using:SwapiMaui.Model"
-             xmlns:global="clr-namespace:"
              x:DataType="viewmodel:ListViewModel"
              x:Class="SwapiMaui.View.ListPage">
     <ContentPage.Content>
@@ -12,16 +11,16 @@
                 <CollectionView BackgroundColor="Transparent" ItemsSource="{Binding People, Mode=OneWay}" SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Person">
-                            <Frame Padding="0" HeightRequest="60">
+                            <Frame CornerRadius="0" Padding="0" HeightRequest="60">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer
                                         CommandParameter="{Binding .}"
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToDetailCommand}" />
                                 </Frame.GestureRecognizers>
-                                <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
-                                        <Label Text="{Binding Name}"  />
-                                        <Label Text="{Binding Gender}" />
-                                    </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center" BackgroundColor="Black">
+                                    <Label Style="{StaticResource Headline}" Text="{Binding Name}" />
+                                    <Label Style="{StaticResource SubHeadline}" Text="{Binding Gender}" />
+                                </VerticalStackLayout>
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
@@ -29,23 +28,23 @@
             <CollectionView BackgroundColor="Transparent" ItemsSource="{Binding Films, Mode=OneWay}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Film">
-                        <Frame Padding="0" HeightRequest="60">
+                        <Frame Padding="0" HeightRequest="60" BackgroundColor="Black"> 
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer
                                     CommandParameter="{Binding .}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToDetailCommand}" />
                             </Frame.GestureRecognizers>
                             <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
-                                <Label Text="{Binding Title}"  />
-                                <Label Text="{Binding EpisodeId, StringFormat='Episode {0}'}" />
+                                <Label Style="{StaticResource Headline}" Text="{Binding Title}"  />
+                                <Label Style="{StaticResource SubHeadline}" Text="{Binding EpisodeId, StringFormat='Episode {0}'}" />
                             </VerticalStackLayout>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
             <VerticalStackLayout Spacing="10" Margin="10">
-                <Button Text="Get People" Command="{Binding GetPeopleCommand}" IsEnabled="{Binding IsNotBusy}" />
-                <Button Text="Get Films" Command="{Binding GetFilmsCommand}" IsEnabled="{Binding IsNotBusy}" />
+                <Button Text="GET PEOPLE" Command="{Binding GetPeopleCommand}" IsEnabled="{Binding IsNotBusy}" />
+                <Button Text="GET FILMS" Command="{Binding GetFilmsCommand}" IsEnabled="{Binding IsNotBusy}" />
             </VerticalStackLayout>
 
 

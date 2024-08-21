@@ -9,7 +9,7 @@
     Title="SwapiMaui">
 
     <ShellContent
-        Title="Home"
+        Title="SwapiMaui"
         ContentTemplate="{DataTemplate view:ListPage}"
         Route="MainPage" />
 
