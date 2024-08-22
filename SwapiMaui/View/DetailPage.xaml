@@ -8,25 +8,31 @@
              x:DataType="viewmodel:DetailViewModel">
     <ContentPage.Content>
         <ScrollView>
-            <VerticalStackLayout Padding="10"
-                    Spacing="10">
+            <VerticalStackLayout Padding="10">
                 <Label Style="{StaticResource BulletPoint}"
-                        Text="{Binding Person.Name, StringFormat='Name: {0}'}"/>
+                       Text="{Binding Person.Name, StringFormat='Name: {0}'}"/>
                 <Label Style="{StaticResource BulletPoint}"
-                        Text="{Binding Person.Gender, StringFormat='Gender: {0}'}"/>
+                       Text="{Binding Person.Gender, StringFormat='Gender: {0}'}"/>
                 <Label Style="{StaticResource BulletPoint}"
-                        Text="{Binding Person.SkinColor, StringFormat='Skin Colour: {0}'}"/>
+                       Text="{Binding Person.SkinColor, StringFormat='Skin Colour: {0}'}"/>
                 <Label Style="{StaticResource BulletPoint}"
-                        Text="{Binding Person.HairColor, StringFormat='Hair Colour: {0}'}"/>
+                       Text="{Binding Person.HairColor, StringFormat='Hair Colour: {0}'}"/>
                 <Label Style="{StaticResource BulletPoint}"
-                        Text="{Binding Person.EyeColor, StringFormat='Eye Colour: {0}'}"/>
+                       Text="{Binding Person.EyeColor, StringFormat='Eye Colour: {0}'}"/>
 
                 <Label Style="{StaticResource BulletPoint}"
-                        Text="{Binding Film.Title, StringFormat='Title: {0}'}"/>
+                       Text="{Binding Film.Title, StringFormat='Title: {0}'}"/>
                 <Label Style="{StaticResource BulletPoint}"
-                        Text="{Binding Film.EpisodeId, StringFormat='Episode: {0}'}"/>
+                       Text="{Binding Film.EpisodeId, StringFormat='Episode: {0}'}"/>
                 <Label Style="{StaticResource BulletPoint}"
-                        Text="{Binding Film.OpeningCrawl, StringFormat='{0}'}"/>
+                       Text="{Binding Film.OpeningCrawl, StringFormat='{0}'}"/>
+
+                <Label Style="{StaticResource BulletPoint}"
+                       Text="{Binding Planet.Name, StringFormat='Name: {0}'}"/>
+                <Label Style="{StaticResource BulletPoint}"
+                       Text="{Binding Planet.Climate, StringFormat='Climate: {0}'}"/>
+                <Label Style="{StaticResource BulletPoint}"
+                       Text="{Binding Planet.Terrain, StringFormat='Terrain: {0}'}"/>
             </VerticalStackLayout>
         </ScrollView>
     </ContentPage.Content>

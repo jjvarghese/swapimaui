@@ -163,6 +163,21 @@ public partial class ListViewModel : BaseViewModel
         {
             await GoToFilmDetailAsync(item.Film);
         }
+        else if (item.Planet is not null)
+        {
+            await GoToPlanetDetailAsync(item.Planet);
+        }
+    }
+
+    private async Task GoToPlanetDetailAsync(Planet planet)
+    {
+        if (planet is null) return;
+
+        await Shell.Current.GoToAsync($"{nameof(DetailPage)}", true, new Dictionary<string, object>
+        {
+            { "Planet", planet },
+            { "Title", planet.Name}
+        });
     }
 
     private async Task GoToPersonDetailAsync(Person person)
