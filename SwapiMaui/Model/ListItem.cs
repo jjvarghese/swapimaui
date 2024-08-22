@@ -1,15 +1,16 @@
-using System;
 
 namespace SwapiMaui.Model;
 
 public class ListItem
 {
-    public String Headline { get; set; }
+    public string Headline { get; set; }
 
-    public String Subtitle { get; set; }
+    public string Subtitle { get; set; }
 
     public Film? Film { get; set; }
 
     public Person? Person { get; set; }
+
+    public Planet? Planet { get; set; }
 
 }

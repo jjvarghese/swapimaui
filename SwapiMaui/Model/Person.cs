@@ -1,32 +1,31 @@
-using System.Runtime.InteropServices.JavaScript;
 using System.Text.Json.Serialization;
 
 namespace SwapiMaui.Model;
 
 public class Person
 {
-    public String Name { get; set; }
-    
-    [JsonPropertyName("hair_color")]
-    public String HairColor { get; set; }
-    
-    [JsonPropertyName("skin_color")]
-    public String SkinColor { get; set; }
-    
-    [JsonPropertyName("eye_color")]
-    public String EyeColor { get; set; }
-    
-    public String Gender { get; set; }
-    
-    public String Homeworld { get; set; }
-    
-    public String[] Films { get; set; }
-    
-    public String[] Species { get; set; }
+    public string Name { get; set; }
 
-    public String[] Vehicles { get; set; }
-    
-    public String[] Starships { get; set; }
+    [JsonPropertyName("hair_color")]
+    public string HairColor { get; set; }
+
+    [JsonPropertyName("skin_color")]
+    public string SkinColor { get; set; }
+
+    [JsonPropertyName("eye_color")]
+    public string EyeColor { get; set; }
+
+    public string Gender { get; set; }
+
+    public string Homeworld { get; set; }
+
+    public string[] Films { get; set; }
+
+    public string[] Species { get; set; }
+
+    public string[] Vehicles { get; set; }
+
+    public string[] Starships { get; set; }
 }
 
 [JsonSerializable(typeof(List<Person>))]

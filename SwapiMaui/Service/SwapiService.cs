@@ -6,9 +6,10 @@ namespace SwapiMaui.Service;
 public class SwapiService
 {
     private const string BaseUrl = "https://swapi.dev/api";
-    
+
     private List<Person> people = new List<Person>();
     private List<Film> films = new List<Film>();
+    private List<Planet> planets = new List<Planet>();
 
     private HttpClient httpClient;
 
@@ -26,7 +27,7 @@ public class SwapiService
         else
         {
             const string url = $"{BaseUrl}/people";
-            
+
             var response = await httpClient.GetFromJsonAsync<SwapiResponse<Person>>(url);
 
             if (response.Results.Count > 0)
@@ -38,7 +39,7 @@ public class SwapiService
             return people;
         }
     }
-    
+
     public async Task<List<Film>> GetFilms()
     {
         if (films.Count > 0)
@@ -48,7 +49,7 @@ public class SwapiService
         else
         {
             const string url = $"{BaseUrl}/films";
-            
+
             var response = await httpClient.GetFromJsonAsync<SwapiResponse<Film>>(url);
 
             if (response.Results.Count > 0)
@@ -58,6 +59,28 @@ public class SwapiService
             }
 
             return films;
+        }
+    }
+
+    public async Task<List<Planet>> GetPlanets()
+    {
+        if (planets.Count > 0)
+        {
+            return planets;
+        }
+        else
+        {
+            const string url = $"{BaseUrl}/planets";
+
+            var response = await httpClient.GetFromJsonAsync<SwapiResponse<Planet>>(url);
+
+            if (response.Results.Count > 0)
+            {
+                planets = response?.Results ?? [];
+
+            }
+
+            return planets;
         }
     }
 }

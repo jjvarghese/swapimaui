@@ -6,32 +6,47 @@
              xmlns:model="using:SwapiMaui.Model"
              x:DataType="viewmodel:ListViewModel"
              x:Class="SwapiMaui.View.ListPage">
-    <ContentPage.Content>
+    <ScrollView>
         <VerticalStackLayout>
-                <CollectionView BackgroundColor="Transparent" ItemsSource="{Binding Items, Mode=OneWay}" SelectionMode="None">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="model:ListItem">
-                            <Frame CornerRadius="0" Padding="0" HeightRequest="60">
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer
-                                        CommandParameter="{Binding .}"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToDetailsCommand}" />
-                                </Frame.GestureRecognizers>
-                                <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center" BackgroundColor="Black">
-                                    <Label Style="{StaticResource Headline}" Text="{Binding Headline}" />
-                                    <Label Style="{StaticResource SubHeadline}" Text="{Binding Subtitle}" />
-                                </VerticalStackLayout>
-                            </Frame>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            <VerticalStackLayout Spacing="10" Margin="10">
-                <Button Text="GET PEOPLE" Command="{Binding GetPeopleCommand}" IsEnabled="{Binding IsNotBusy}" />
-                <Button Text="GET FILMS" Command="{Binding GetFilmsCommand}" IsEnabled="{Binding IsNotBusy}" />
+            <CollectionView BackgroundColor="Transparent"
+                            ItemsSource="{Binding Items, Mode=OneWay}"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:ListItem">
+                        <Frame CornerRadius="0"
+                               Padding="0"
+                               HeightRequest="60">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    CommandParameter="{Binding .}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToDetailsCommand}"/>
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout Grid.Column="1"
+                                                 Padding="10"
+                                                 VerticalOptions="Center"
+                                                 BackgroundColor="Black">
+                                <Label Style="{StaticResource Headline}"
+                                       Text="{Binding Headline}"/>
+                                <Label Style="{StaticResource SubHeadline}"
+                                       Text="{Binding Subtitle}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <VerticalStackLayout Spacing="10"
+                                 Margin="10">
+                <Button Text="GET PEOPLE"
+                        Command="{Binding GetPeopleCommand}"
+                        IsEnabled="{Binding IsNotBusy}"/>
+                <Button Text="GET FILMS"
+                        Command="{Binding GetFilmsCommand}"
+                        IsEnabled="{Binding IsNotBusy}"/>
+                <Button Text="GET PLANETS"
+                        Command="{Binding GetPlanetsCommand}"
+                        IsEnabled="{Binding IsNotBusy}"/>
             </VerticalStackLayout>
-
-
         </VerticalStackLayout>
-
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>
