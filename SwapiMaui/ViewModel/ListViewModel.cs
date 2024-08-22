@@ -47,7 +47,8 @@ public partial class ListViewModel : BaseViewModel
                 Items.Add(new ListItem 
                 {
                     Headline = person.Name,
-                    Subtitle = person.Gender
+                    Subtitle = person.Gender,
+                    Person = person
                 });
             }
         }
@@ -88,7 +89,8 @@ public partial class ListViewModel : BaseViewModel
                 Items.Add(new ListItem
                 {
                     Headline = film.Title,
-                    Subtitle = $"Episode {film.EpisodeId}"
+                    Subtitle = $"Episode {film.EpisodeId}",
+                    Film = film
                 });
             }
         }
@@ -105,6 +107,17 @@ public partial class ListViewModel : BaseViewModel
     }
     
     [RelayCommand]
+    private async Task GoToDetailsAsync(ListItem item) {
+        if (item.Person is not null)
+        {
+            await GoToPersonDetailAsync(item.Person);
+        }
+        else if (item.Film is not null)
+        {
+            await GoToFilmDetailAsync(item.Film);
+        }
+    }
+
     private async Task GoToPersonDetailAsync(Person person)
     {
         if (person is null) return;
@@ -116,7 +129,6 @@ public partial class ListViewModel : BaseViewModel
         });
     }
     
-    [RelayCommand]
     private async Task GoToFilmDetailAsync(Film film)
     {
         if (film is null) return;
