@@ -58,7 +58,7 @@ public class SwapiService
 
             }
 
-            return films;
+            return films.OrderBy(film => film.EpisodeId).ToList();
         }
     }
 
