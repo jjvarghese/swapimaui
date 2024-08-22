@@ -11,8 +11,9 @@ public partial class ListViewModel : BaseViewModel
 {
     private readonly SwapiService swapiService;
 
-    public ObservableCollection<Person> People { get; } = new();
-    public ObservableCollection<Film> Films { get; } = new();
+    private Collection<Person> People { get; } = new();
+    private Collection<Film> Films { get; } = new();
+    
     public ObservableCollection<ListItem> Items { get; } = new();
 
     public ListViewModel(SwapiService swapiService)
