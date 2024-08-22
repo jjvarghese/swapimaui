@@ -13,6 +13,7 @@ public partial class ListViewModel : BaseViewModel
 
     public ObservableCollection<Person> People { get; } = new();
     public ObservableCollection<Film> Films { get; } = new();
+    public ObservableCollection<ListItem> Items { get; } = new();
 
     public ListViewModel(SwapiService swapiService)
     {
@@ -34,6 +35,7 @@ public partial class ListViewModel : BaseViewModel
             IsBusy = true;
             
             Films.Clear();
+            Items.Clear();
             
             var people = await swapiService.GetPeople();
             
@@ -42,6 +44,11 @@ public partial class ListViewModel : BaseViewModel
             foreach (var person in people)
             {
                 People.Add(person);
+                Items.Add(new ListItem 
+                {
+                    Headline = person.Name,
+                    Subtitle = person.Gender
+                });
             }
         }
         catch (Exception ex)
@@ -69,6 +76,7 @@ public partial class ListViewModel : BaseViewModel
             IsBusy = true;
             
             People.Clear();
+            Items.Clear();
 
             var films = await swapiService.GetFilms();
             
@@ -77,6 +85,11 @@ public partial class ListViewModel : BaseViewModel
             foreach (var film in films)
             {
                 Films.Add(film);
+                Items.Add(new ListItem
+                {
+                    Headline = film.Title,
+                    Subtitle = $"Episode {film.EpisodeId}"
+                });
             }
         }
         catch (Exception ex)

@@ -8,9 +8,9 @@
              x:Class="SwapiMaui.View.ListPage">
     <ContentPage.Content>
         <VerticalStackLayout>
-                <CollectionView BackgroundColor="Transparent" ItemsSource="{Binding People, Mode=OneWay}" SelectionMode="None">
+                <CollectionView BackgroundColor="Transparent" ItemsSource="{Binding Items, Mode=OneWay}" SelectionMode="None">
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="model:Person">
+                        <DataTemplate x:DataType="model:ListItem">
                             <Frame CornerRadius="0" Padding="0" HeightRequest="60">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer
@@ -18,30 +18,13 @@
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToPersonDetailCommand}" />
                                 </Frame.GestureRecognizers>
                                 <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center" BackgroundColor="Black">
-                                    <Label Style="{StaticResource Headline}" Text="{Binding Name}" />
-                                    <Label Style="{StaticResource SubHeadline}" Text="{Binding Gender}" />
+                                    <Label Style="{StaticResource Headline}" Text="{Binding Headline}" />
+                                    <Label Style="{StaticResource SubHeadline}" Text="{Binding Subtitle}" />
                                 </VerticalStackLayout>
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-            <CollectionView BackgroundColor="Transparent" ItemsSource="{Binding Films, Mode=OneWay}" SelectionMode="None">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Film">
-                        <Frame Padding="0" HeightRequest="60" BackgroundColor="Black"> 
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer
-                                    CommandParameter="{Binding .}"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToFilmDetailCommand}" />
-                            </Frame.GestureRecognizers>
-                            <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
-                                <Label Style="{StaticResource Headline}" Text="{Binding Title}"  />
-                                <Label Style="{StaticResource SubHeadline}" Text="{Binding EpisodeId, StringFormat='Episode {0}'}" />
-                            </VerticalStackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
             <VerticalStackLayout Spacing="10" Margin="10">
                 <Button Text="GET PEOPLE" Command="{Binding GetPeopleCommand}" IsEnabled="{Binding IsNotBusy}" />
                 <Button Text="GET FILMS" Command="{Binding GetFilmsCommand}" IsEnabled="{Binding IsNotBusy}" />
