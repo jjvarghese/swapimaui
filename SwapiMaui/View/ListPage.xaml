@@ -15,7 +15,7 @@
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer
                                         CommandParameter="{Binding .}"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToDetailCommand}" />
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToPersonDetailCommand}" />
                                 </Frame.GestureRecognizers>
                                 <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center" BackgroundColor="Black">
                                     <Label Style="{StaticResource Headline}" Text="{Binding Name}" />
@@ -32,7 +32,7 @@
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer
                                     CommandParameter="{Binding .}"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToDetailCommand}" />
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ListViewModel}}, Path=GoToFilmDetailCommand}" />
                             </Frame.GestureRecognizers>
                             <VerticalStackLayout Grid.Column="1" Padding="10" VerticalOptions="Center">
                                 <Label Style="{StaticResource Headline}" Text="{Binding Title}"  />

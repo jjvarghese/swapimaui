@@ -92,13 +92,26 @@ public partial class ListViewModel : BaseViewModel
     }
     
     [RelayCommand]
-    private async Task GoToDetailAsync(Person person)
+    private async Task GoToPersonDetailAsync(Person person)
     {
         if (person is null) return;
 
         await Shell.Current.GoToAsync($"{nameof(DetailPage)}", true, new Dictionary<string, object>
         {
-            { "Person", person }
+            { "Person", person },
+            { "Title", person.Name}
+        });
+    }
+    
+    [RelayCommand]
+    private async Task GoToFilmDetailAsync(Film film)
+    {
+        if (film is null) return;
+
+        await Shell.Current.GoToAsync($"{nameof(DetailPage)}", true, new Dictionary<string, object>
+        {
+            { "Film", film },
+            { "Title", film.Title}
         });
     }
 }
